@@ -1,3 +1,6 @@
+/**
+ * Does not work
+ */
 export default class DataHandler {
   constructor() {
     this.data = [];
