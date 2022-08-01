@@ -6,12 +6,13 @@ export default async function handler(req, res) {
   if (req.method !== "POST")
     return res.status(405).send({ message: "Only POST requests allowed" });
 
-  console.error(req.body);
+  console.error(req.query);
+  const { First, Last } = req.query;
   const entry = await prisma.entry.create({
     data: {
-      Name: "Alice Lee",
-      First: "Alice",
-      Last: "Lee",
+      Name: `${First} ${Last}`,
+      First: First,
+      Last: Last,
     },
   });
   res.status(200).json(entry);
