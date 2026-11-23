@@ -55,12 +55,13 @@ export default function Home() {
               minWidth: "50vw",
             }}
           >
+            <tbody>
             {names.map((name) => {
               if (!name) return;
               console.log(name);
 
               return (
-                <tr>
+                <tr key={name.id}>
                   <td style={{ border: "thin solid white", padding: 5 }}>
                     {name?.Name}
                   </td>
@@ -82,6 +83,7 @@ export default function Home() {
                 </tr>
               );
             })}
+            </tbody>
           </table>
         </div>
       </main>
