@@ -2,12 +2,15 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+  // Extensionless imports so Next.js (Turbopack) can resolve the generated .ts files.
+  importFileExtension = ""
 }
 
+// The connection URL lives in prisma.config.ts (CLI) and lib/prisma.js (runtime).
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
 }
 
 model Entry {
